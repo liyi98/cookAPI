@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="455cc9e7-d7f4-4178-9be9-e6641d8e00af" name="Default Changelist" comment="" />
+    <list default="true" id="455cc9e7-d7f4-4178-9be9-e6641d8e00af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/sql/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/sql/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +31,11 @@
     <expand />
     <select />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1W1v5NHYk8XpueY3SAF52iSTmXz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -34,8 +43,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/db/sql/ddl.sql" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -79,6 +90,10 @@
       <workItem from="1581008065037" duration="2987000" />
       <workItem from="1581094333158" duration="4301000" />
       <workItem from="1581231815678" duration="1144000" />
+      <workItem from="1582622876869" duration="2468000" />
+      <workItem from="1582727495498" duration="670000" />
+      <workItem from="1582810893078" duration="9782000" />
+      <workItem from="1582895359241" duration="4014000" />
     </task>
     <servers />
   </component>
@@ -102,9 +117,13 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="474" y="408" width="331" height="151" key="NewPhpFileDialog/0.0.1280.984@0.0.1280.984" timestamp="1581008352430" />
-    <state x="348" y="321" key="com.intellij.ide.util.TipDialog" timestamp="1581231823255">
+    <state x="143" y="138" key="SettingsEditor" timestamp="1582623549930">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="348" y="321" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1581231823255" />
+    <state x="143" y="138" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1582623549930" />
+    <state x="348" y="321" key="com.intellij.ide.util.TipDialog" timestamp="1582895421722">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="348" y="321" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1582895421722" />
   </component>
 </project>

@@ -3,8 +3,8 @@ CREATE TABLE `user` (
     name varchar(50) NOT NULL,
     email varchar(256) NOT NULL, 
 	password varchar(256) NOT NULL,
-	gender int NOT NULL,
-	phone varchar(30) NOT NULL,
+	gender int NULL,
+	phone varchar(30) NULL,
 	creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	token varchar(256) NULL,
 	PRIMARY KEY(id),
@@ -27,7 +27,6 @@ CREATE TABLE recipe (
 )ENGINE=Innodb;
 CREATE TABLE category (
     id bigint NOT NULL AUTO_INCREMENT,
-	category_id bigint NOT NULL,
 	name varchar(50) NOT NULL,
     PRIMARY KEY(id),
     creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -125,7 +124,7 @@ CREATE TABLE ratings(
 
 CREATE TABLE allergies_categories(
     id bigint NOT NULL AUTO_INCREMENT,
-    allergy_name bigint NOT NULL,
+    allergy_name varchar(64) NOT NULL,
     creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 )ENGINE=Innodb;
@@ -133,11 +132,20 @@ CREATE TABLE allergies_categories(
 CREATE TABLE user_allergy(
     id bigint NOT NULL AUTO_INCREMENT,
     user_id bigint NOT NULL ,
-    allergies_categories_id decimal(1,1) NOT NULL,
+    allergies_categories_id bigint NOT NULL,
     PRIMARY KEY(id),
     CONSTRAINT FK_user_user_allgergy FOREIGN KEY (user_id)
     REFERENCES `user`(id),
     CONSTRAINT FK_UA_ACI FOREIGN KEY (allergies_categories_id)
     REFERENCES `allergies_categories`(id)
 )ENGINE=Innodb;
+CREATE TABLE search_history(
+     id bigint NOT NULL AUTO_INCREMENT,
+     user_id bigint NOT NULL ,
+     keyword bigint NOT NULL,
+     PRIMARY KEY(id),
+     CONSTRAINT FK_user_search_history FOREIGN KEY (user_id)
+     REFERENCES `user`(id)
+)ENGINE=Innodb;
+
 
