@@ -3,6 +3,7 @@ CREATE TABLE `user` (
     name varchar(50) NOT NULL,
     email varchar(256) NOT NULL, 
 	password varchar(256) NOT NULL,
+    profile_image varchar(256) NULL,
 	gender int NULL,
 	phone varchar(30) NULL,
 	creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -22,11 +23,14 @@ CREATE TABLE recipe (
 	creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id),
 	CONSTRAINT FK_user_recipe FOREIGN KEY (user_id)
-    REFERENCES `user`(id)
+    REFERENCES `user`(id),
+    CONSTRAINT FK_category_recipe FOREIGN KEY (category)
+    REFERENCES `category`(id)
    
 )ENGINE=Innodb;
+
 CREATE TABLE category (
-    id bigint NOT NULL AUTO_INCREMENT,
+    id int NOT NULL AUTO_INCREMENT,
 	name varchar(50) NOT NULL,
     PRIMARY KEY(id),
     creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -124,7 +128,7 @@ CREATE TABLE ratings(
 
 CREATE TABLE allergies_categories(
     id bigint NOT NULL AUTO_INCREMENT,
-    allergy_name varchar(64) NOT NULL,
+    name varchar(64) NOT NULL,
     creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 )ENGINE=Innodb;
@@ -139,6 +143,7 @@ CREATE TABLE user_allergy(
     CONSTRAINT FK_UA_ACI FOREIGN KEY (allergies_categories_id)
     REFERENCES `allergies_categories`(id)
 )ENGINE=Innodb;
+
 CREATE TABLE search_history(
      id bigint NOT NULL AUTO_INCREMENT,
      user_id bigint NOT NULL ,
@@ -146,6 +151,41 @@ CREATE TABLE search_history(
      PRIMARY KEY(id),
      CONSTRAINT FK_user_search_history FOREIGN KEY (user_id)
      REFERENCES `user`(id)
+)ENGINE=Innodb;
+
+CREATE TABLE point(
+       id bigint NOT NULL AUTO_INCREMENT,
+       user_id bigint NOT NULL ,
+       debit int NULL,
+       credit int NULL,
+       PRIMARY KEY(id),
+       CONSTRAINT FK_user_points FOREIGN KEY (user_id)
+       REFERENCES `user`(id)
+)ENGINE=Innodb;
+
+CREATE TABLE reward(
+       id bigint NOT NULL AUTO_INCREMENT,
+       name bigint NOT NULL ,
+       points int NOT NULL,
+       PRIMARY KEY(id)
+)ENGINE=Innodb;
+
+CREATE TABLE claims(
+        id bigint NOT NULL AUTO_INCREMENT,
+        user_id bigint NOT NULL ,
+        reward_id bigint NOT NULL,
+        creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY(id),
+        CONSTRAINT FK_user_claims FOREIGN KEY (user_id)
+        REFERENCES `user`(id),
+        CONSTRAINT FK_reward_claims FOREIGN KEY (reward_id)
+        REFERENCES `reward`(id)
+)ENGINE=Innodb;
+
+CREATE TABLE role_ingredient(
+          id bigint NOT NULL AUTO_INCREMENT,
+          name bigint NOT NULL,
+          PRIMARY KEY(id)
 )ENGINE=Innodb;
 
 

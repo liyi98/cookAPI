@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="455cc9e7-d7f4-4178-9be9-e6641d8e00af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/sql/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/sql/ddl.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.php" afterDir="false" />
@@ -94,6 +94,8 @@
       <workItem from="1582727495498" duration="670000" />
       <workItem from="1582810893078" duration="9782000" />
       <workItem from="1582895359241" duration="4014000" />
+      <workItem from="1582999801907" duration="1171000" />
+      <workItem from="1583038917726" duration="28222000" />
     </task>
     <servers />
   </component>
@@ -121,9 +123,9 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="143" y="138" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1582623549930" />
-    <state x="348" y="321" key="com.intellij.ide.util.TipDialog" timestamp="1582895421722">
+    <state x="348" y="321" key="com.intellij.ide.util.TipDialog" timestamp="1583038923080">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="348" y="321" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1582895421722" />
+    <state x="348" y="321" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1583038923080" />
   </component>
 </project>
