@@ -114,6 +114,17 @@ $router->route('GET', '/recipe/me', function() use ($conn) {
     }
     return Router::response(200, $recipes);
 });
+
+$router->route('GET', '/recipe/[i:id]', function($id) use ($conn) {
+
+    $stmt = $conn->prepare('SELECT r.id, r.description, r.category, r.title, r.cover_image, r.tips, u.name, r.user_id FROM recipe r inner join user u on r.user_id = u.id where r.id = ?');
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $recipe = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+    return Router::response(200, $recipe);
+});
+
 $router->route('GET', '/recipe/[i:id]/ingredient', function($id) use ($conn) {
     if (!$id) {
         return Router::response(400);
@@ -240,7 +251,7 @@ $router->route('GET', '/album/[i:id]/item', function($id) use ($conn) {
     }
     $user = authUser($conn);
     if (!$user) return Router::response(403);
-    $stmt = $conn->prepare('SELECT recipe.cover_image, recipe.title, user.name FROM album inner join album_recipe ar on album.id = ar.album_id inner join recipe on ar.recipe_id = recipe.id inner join user on recipe.user_id = user.id where album_id = ? and album.user_id = ?');
+    $stmt = $conn->prepare('SELECT recipe.id, recipe.cover_image, recipe.title, user.name FROM album inner join album_recipe ar on album.id = ar.album_id inner join recipe on ar.recipe_id = recipe.id inner join user on recipe.user_id = user.id where album_id = ? and album.user_id = ?');
     $stmt->bind_param('ii', $id, $user['id']);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -250,23 +261,74 @@ $router->route('GET', '/album/[i:id]/item', function($id) use ($conn) {
     }
     return Router::response(200, $recipes);
 });
-//route do not how to put
-$router->route('POST', '/recipe/ratings', function() use ($conn) {
-    if (!Router::found($_POST, 'recipe_id', 'user_id', 'ratings')) {
+
+$router->route('POST', '/recipe/[i:id]/ratings', function($id) use ($conn) {
+    if (!$id) {
         return Router::response(400);
     }
-
-    $stmt = $conn->prepare('INSERT INTO ratings(recipe_id, user_id, ratings) VALUES(?, ?)');
-    $stmt->bind_param('iii', $_POST['recipe_id'], $_POST['user_id'], $_POST['ratings']);
+    $user = authUser($conn);
+    if (!$user) return Router::response(403);
+    if (!Router::found($_POST,  'ratings')) {
+        return Router::response(400);
+    }
+    $stmt = $conn->prepare('INSERT INTO ratings(recipe_id, user_id, ratings) VALUES(?, ?, ?)');
+    $stmt->bind_param('iii', $id, $user['id'], $_POST['ratings']);
     $result = $stmt->execute();
 
     if ($result) {
         return Router::response(201);
-    } else if ($stmt->errno == 1062) {
-        return Router::response(409);
-    } else {
+    }  else {
         return Router::response(500);
     }
+});
+
+
+$router->route('POST', '/recipe/[i:id]/comments', function($id) use ($conn) {
+    if (!$id) {
+        return Router::response(400);
+    }
+    $user = authUser($conn);
+    if (!$user) return Router::response(403);
+    if (!Router::found($_POST,  'content')) {
+        return Router::response(400);
+    }
+    $stmt = $conn->prepare('INSERT INTO comment(recipe_id, user_id, content) VALUES(?, ?, ?)');
+    $stmt->bind_param('iis', $id, $user['id'], $_POST['content']);
+    $result = $stmt->execute();
+
+    if ($result) {
+        return Router::response(201);
+    }  else {
+        return Router::response(500);
+    }
+});
+
+$router->route('GET', '/recipe/[i:id]/comments', function($id) use ($conn) {
+    if (!$id) {
+        return Router::response(400);
+    }
+    $stmt = $conn->prepare('SELECT c.id, c.user_id, u.name, c.content, recipe_id FROM comment c inner join user u on c.user_id = u.id where recipe_id = ? ORDER BY c.id DESC');
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $comments = [];
+    while($comment = $result->fetch_assoc()){
+        $comments[] = $comment;
+    }
+    return Router::response(200, $comments);
+});
+$router->route('GET', '/user/me/ratings/[i:id]', function($id) use ($conn) {
+    if (!$id) {
+        return Router::response(400);
+    }
+    $user = authUser($conn);
+    if (!$user) return Router::response(403);
+    $stmt = $conn->prepare('SELECT r.id, r.user_id, r.recipe_id, ratings, u.name, u.profile_image FROM ratings r inner join user u on r.user_id = u.id where recipe_id = ? and r.user_id = ?');
+    $stmt->bind_param('ii', $id, $user['id']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $ratings = $result->fetch_assoc();
+    return Router::response(200, $ratings);
 });
 
 $router->route('GET', '/category', function() use ($conn) {
@@ -286,4 +348,5 @@ $router->route('GET', '/allergy', function() use ($conn) {
     }
     return Router::response(200, $allergies_categories);
 });
+
 $router->run();

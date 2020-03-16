@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="455cc9e7-d7f4-4178-9be9-e6641d8e00af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/sql/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/sql/ddl.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +44,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/db/sql/ddl.sql" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -95,7 +93,11 @@
       <workItem from="1582810893078" duration="9782000" />
       <workItem from="1582895359241" duration="4014000" />
       <workItem from="1582999801907" duration="1171000" />
-      <workItem from="1583038917726" duration="28222000" />
+      <workItem from="1583038917726" duration="28226000" />
+      <workItem from="1583657474959" duration="5112000" />
+      <workItem from="1583846218203" duration="2853000" />
+      <workItem from="1583905092239" duration="3931000" />
+      <workItem from="1584029488206" duration="1264000" />
     </task>
     <servers />
   </component>
@@ -119,10 +121,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="474" y="408" width="331" height="151" key="NewPhpFileDialog/0.0.1280.984@0.0.1280.984" timestamp="1581008352430" />
-    <state x="143" y="138" key="SettingsEditor" timestamp="1582623549930">
+    <state x="143" y="138" key="SettingsEditor" timestamp="1583849858580">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="143" y="138" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1582623549930" />
+    <state x="143" y="138" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1583849858580" />
     <state x="348" y="321" key="com.intellij.ide.util.TipDialog" timestamp="1583038923080">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
